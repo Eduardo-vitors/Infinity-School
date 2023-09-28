@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokedex</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles.css"/>
+</head>
+<body>
+    <header>
+        <h1>Pokedex</h1>
+        <div class="filters">
+            <button onclick="filtrarPokemonsPorTipo('water')">Água</button>
+            <button onclick="filtrarPokemonsPorTipo('fire')">Fogo</button>
+            <button onclick="filtrarPokemonsPorTipo('grass')">Grama</button>
+            <button onclick="filtrarPokemonsPorTipo('poison')">Veneno</button>
+        </div>
+    </header>
+    <!-- <p id="photo"></p> -->
+    <section id="pokemons_container"></section>
+    <script>
+        const PokemonContainer = document.querySelector("#pokemons_container")
+        /* fetch("https://pokeapi.co/api/v2/pokemon")
+        .then(resposta=>resposta.json())
+        .then(dados=> console.log(dados))
+        .catch() */
+
+        async function captarPokemon(){
+            try{
+                let resposta = await fetch("https://pokeapi.co/api/v2/pokemon?limit=150")
+                let dados = await resposta.json()
+                return dados.results
+            }catch(e){
+                console.log(e)
+            }
+        }
+
+        async function pegarPokemon(url){
+            try{
+                let resposta = await fetch(url)
+                let pokemon = await resposta.json()
+                return pokemon
+            }catch(e){
+                console.log(e)
+            }
+        }
+
+      async function MostrarPokemon(){
+            let p= document.getElementById("photo")
+            const pokemons = await captarPokemon()
+            for (let item of pokemons){
+                const pokemon = await pegarPokemon(item.url)
+               /*  
+                p.innerHTML+=`<ul><img src="${pokemon.sprites.front_default}"/></ul>` */
+                PokemonContainer.innerHTML+=`<div class="card">
+                    <img src="${pokemon.sprites.versions['generation-v']["black-white"].animated.front_default}"/>
+                    <h2>${pokemon.name}</h2>
+                    <div class= "types ${pokemon.name}"></div>
+                    </div>` 
+                    const typesContainer=document.querySelector(`.${pokemon.name}`)
+                    pokemon.types.forEach(item=> {
+                    typesContainer.innerHTML+=`<span class="type ${item.type.name}">${item.type.name} </span>`
+                    })    
+            }
+   /*          pokemons.forEach(async (pokemon) => {
+                Lógica da chamada do pokemon com await aqui dentro por isso a função callback do for each precisa ser async
+            }) */
+        }
+        async function filtrarPokemonsPorTipo(name){
+            const dado =  await captarPokemon(name)
+
+        }
+        MostrarPokemon()
+    </script>
+</body>
+</html>

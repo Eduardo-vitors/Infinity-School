@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Numero_PAR</title>
+</head>
+<body>
+    <h1>NÚMEROS PARES</h1>
+    <button id="btn-filtrar">Filtrar Números Pares</button>
+    <p id="resultado"></p>
+
+    <script>
+       function filtrarNumerosPares(num){
+        let numerosPar = num.filter((par)=>{
+            return par%2===0
+        })
+        return numerosPar
+        }
+
+       function Resultado(res){
+        let resultadop = document.querySelector("#resultado")
+        if (res.length > 0) {
+            resultadop.innerHTML+=`Os números pares do Array são: ${res}`
+        }else{
+            resultadop.innerHTML=("Não há números pares para exibir.")
+        }
+       }
+       
+       const btnFiltrar = document.getElementById("btn-filtrar");
+        btnFiltrar.addEventListener("click", function() {
+            let numeros=[20,11,15,22,18,70,545,73,25,135] /* PARA testar quando tiver número par */
+            //let numeros=[11,15,545,73,25,135] /* Para testar um array sem número par */
+            let numerosPares = filtrarNumerosPares(numeros);
+            Resultado(numerosPares);
+        })
+    </script>
+</body>
+</html>

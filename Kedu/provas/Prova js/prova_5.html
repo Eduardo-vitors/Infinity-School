@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="lista"></p>
+    <p id="min"></p>
+    <p id="max"></p>
+    <script>
+        let p =document.getElementById("min")
+        let p2 =document.getElementById("max")
+        let p3 =document.getElementById("lista")
+        let numeros = [50,26,10,20,15,23,100,520,32,14,9,12,65,54,55]
+        p3.innerHTML+=`A lista é: [ ${numeros} ]`
+        let maximo= Math.max(...numeros)
+        p2.innerHTML+=`O valor máximo da lista é: ${maximo}`
+        let minimo = Math.min(...numeros)
+        p.innerHTML+=`O valor mínimo da lista é: ${minimo}`
+    </script>
+</body>
+</html>

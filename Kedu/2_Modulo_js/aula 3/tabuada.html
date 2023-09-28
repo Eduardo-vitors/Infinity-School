@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="tabuada">
+        Digite um numero para a tabuada
+        </label>
+    <input id="tabuada" type="number" min="1"/>
+    <button onclick="tabuada()">Conta</button>
+    <p id="res"></p>
+    <script>
+        let p =document.getElementById("res")
+        function tabuada(){
+            p.innerHTML=" "
+            const numero=Number(document.getElementById("tabuada").value)
+            for(let i=0;i<11;i++){
+                p.innerHTML+=`${i+"x"+numero+"="+(i*numero)}<br>`
+            }
+        
+        }
+    </script>
+</body>
+</html>

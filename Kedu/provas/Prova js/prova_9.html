@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loja</title>
+</head>
+<body>
+    <p id="res"></p>
+    <script>
+    let p =document.getElementById("res")
+    let produto= [  
+        { nome: "Camisa", preco: 50.0 },
+        { nome: "Calça", preco: 80.0 },
+        { nome: "Jaqueta", preco: 150.0 },
+        { nome: "Meia", preco: 10.0 }
+        ]
+
+   function calcularTotal(produtos){
+    const valorTotal = produtos.reduce((acumulador, produto) => {return acumulador + produto.preco;}, 0)
+      return valorTotal.toFixed(2).replace(".",",");
+        }
+
+    const Total= calcularTotal(produto)
+    p.innerHTML=`O preço total dos produtos foi: R$ ${Total}`
+    </script>
+</body>
+</html>

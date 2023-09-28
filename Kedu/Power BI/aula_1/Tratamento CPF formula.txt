@@ -1,0 +1,5 @@
+CPF FORMATADO = 
+LEFT(Plan1[CPF],3)&"."&
+MID(Plan1[CPF],4,3)&"."&
+MID(Plan1[CPF],7,3)&"-"&
+RIGHT(Plan1[CPF],2)

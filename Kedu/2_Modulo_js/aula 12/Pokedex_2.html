@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokedex</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles.css"/>
+</head>
+<body>
+    <header>
+        <h1>Pokedex</h1>
+        <div class="filters">
+            <button onclick="filtrarPokemonsPorTipo('water')">Água</button>
+            <button onclick="filtrarPokemonsPorTipo('fire')">Fogo</button>
+            <button onclick="filtrarPokemonsPorTipo('grass')">Grama</button>
+            <button onclick="filtrarPokemonsPorTipo('poison')">Veneno</button>
+        </div>
+    </header>
+    <!-- <p id="photo"></p> -->
+    <section id="pokemons_container"></section>
+    <script>
+        const PokemonContainer = document.querySelector("#pokemons_container")
+
+        async function captarPokemon(name){
+            try{
+                let resposta = await fetch(`https://pokeapi.co/api/v2/type/${name}`)
+                let dados = await resposta.json()
+                return dados.pokemon
+            }catch(e){
+                console.log(e)
+            }
+        }
+
+        async function pegarPokemon(url){
+            try{
+                let resposta = await fetch(url)
+                let pokemon = await resposta.json()
+                return pokemon
+            }catch(e){
+                console.log(e)
+            }
+        }
+        async function filtrarPokemonsPorTipo(name){
+            PokemonContainer.innerHTML=""
+            const dado =  await captarPokemon(name)
+            for (let item of dado){
+                const pokemon = await pegarPokemon(item.pokemon.url)
+                PokemonContainer.innerHTML+=`<div class="card">
+                    <img src="${pokemon.sprites.versions['generation-v']["black-white"].animated.front_default}"/>
+                    <h2>${pokemon.name}</h2>
+                    <div class= "types ${pokemon.name}"></div>
+                    </div>` 
+                    const typesContainer=document.querySelector(`.${pokemon.name}`)
+                    pokemon.types.forEach(item=> {
+                    typesContainer.innerHTML+=`<span class="type ${item.type.name}">${item.type.name} </span>`
+                    })    
+            }
+        }
+    </script>
+</body>
+</html>

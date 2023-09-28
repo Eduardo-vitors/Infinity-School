@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <p id="contador">0</p> -->
+    <input value="0" id="contador" type="number" readonly/>
+
+    <button onclick="inc()">Incrementar</button>
+    <button onclick="dec()">Decrementar</button>
+    <button onclick="zer()">zerar</button>
+
+    <script>
+         let input = document.getElementById('contador')
+        function inc(){
+           // let contador = Number(p.innerText)
+           // p.innerHTML = contador+1
+           input.value=++input.value
+        }
+        function dec(){
+           // let contador = Number(p.innerText)
+            //p.innerHTML = contador-1
+            input.value=--input.value
+            if(input.value<0){
+                input.value=0
+            }
+        }
+        function zer(){
+           // p.innerHTML = 0
+           input.value=0
+        }
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Número Par</title>
+</head>
+<body>
+    <h1 style="text-align: center; color: blue;">Verificação se o número é par</h1>
+    <label for="numeroPar">Digite um número par aqui:</label>
+    <input type="number" id="numeroPar">
+    <button id="botao">Verificar</button>
+    <button id="botao2">numeroAleatorio</button>
+    <p>Números pares adicionados ao array:</p>
+    <ul id="ParLista"></ul>
+    <p>Soma dos números pares: <span id="somaPar">0</span></p>
+
+    <script>
+        // o Array
+        numerosPares=[]
+
+        const numeroPar = document.getElementById("numeroPar");
+        const botao = document.getElementById("botao");
+        const ParLista = document.getElementById("ParLista");
+        const somaPar = document.getElementById("somaPar");
+        
+    // Os eventos que são acionados durante o Click do botão
+        botao.addEventListener("click",(test)=>{
+            let valor= Number(numeroPar.value)
+            verificacaoPar(valor,0)
+        })
+        botao2.addEventListener("click",captarNumeroAleatorio)
+
+        // Função assincrona que capta qualquer numero aleatorio de uma API e verifica se é par ou impar
+        async function captarNumeroAleatorio(){
+            try{
+                let resposta = await fetch("https://www.random.org/integers/?num=1&min=1&max=20&col=1&base=10&format=plain&rnd=new")
+                let dados = await resposta.json()
+                const numeroAleatorio = Number(dados)
+                verificacaoPar(numeroAleatorio,1)
+            }catch(e){
+                alert.log(e)
+            }
+        }
+
+// Ocorre a verificação se é par ou impar
+        function verificacaoPar(num,id){
+            let input = Number(num)
+            // verificação de erro para verificar se usuario inseriu um numero Par ou não
+            try{
+                if(!input && id===0){
+                    throw new Error('Por favor, insira um número válido.')
+                }else if(input%2!=0){
+                    if(id===0){
+                        throw new Error('Desculpe, Mas tem que digitar um número Par.')
+                    }else{
+                    throw new Error(`Desculpe, o numero aleatório ${input} é Impar.`)
+                    }
+                }else if(input%2===0){
+                    numerosPares.push(input);
+                    // mostra o Array de números Pares
+                    ParLista.innerHTML=""
+                for(lista of numerosPares){
+                        ParLista.innerHTML += `<li>${lista}</li>`; 
+                    } 
+                    // imprimi a soma de números Pares
+                    somaPar.innerHTML = numerosPares.reduce((a, b) => a + b, 0); 
+            }
+            }catch(e){
+                alert(e)
+            }
+        }
+    </script>
+</body>
+</html>

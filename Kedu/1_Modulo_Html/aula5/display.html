@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       /*  div,img{
+            margin-inline: 40px;
+        }
+        img{
+            display:inline-block;
+        } */
+        /* body{ */
+            /* cria um container flex onde os filhos podem ser reogarnizados no eixo 2d */
+           /*  height: 100vh;
+            display:flex; 
+            flex-direction: row; */
+            /* justify-content: center; *//* alinha os elementos no eixo principal */
+            /* align-items: center; *//* alinha os elementos no eixo transversal */
+       /*      flex-wrap: wrap;
+            gap: 20px;
+        } */
+        div{
+            width: 150px;
+            height: 150px;
+        }
+        .um{
+            background-color: blue;
+        }
+        .dois{background-color: crimson;
+            position: relative;
+        }
+        .tres{background-color: black;}
+        .filha{
+            width: 50px;
+            height: 50px;
+            background-color: purple;
+            position: absolute;
+            top: 50px;
+            left:0px;
+            right: 0px;
+            z-index: 10;
+        }
+    </style>
+</head>
+<body>
+    <!-- <div style="width: 400px; border: 5px solid black">
+        ..
+    </div> -->
+<!--<h1>Display de bloco</h1>
+    <p>Display de bloco</p>
+    <img src="../assets/face.png" />
+    <img src="../assets/face.png" /> -->
+    <div class="um"></div>
+    <div class="dois">
+        <div class="filha"></div>
+    </div>
+    <div class="tres"></div>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident nihil accusantium fugiat repudiandae deleniti fugit, saepe veniam nostrum numquam mollitia, deserunt, dolorem alias vel quidem odit tempore tenetur architecto laborum!</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident nihil accusantium fugiat repudiandae deleniti fugit, saepe veniam nostrum numquam mollitia, deserunt, dolorem alias vel quidem odit tempore tenetur architecto laborum!</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident nihil accusantium fugiat repudiandae deleniti fugit, saepe veniam nostrum numquam mollitia, deserunt, dolorem alias vel quidem odit tempore tenetur architecto laborum!</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident nihil accusantium fugiat repudiandae deleniti fugit, saepe veniam nostrum numquam mollitia, deserunt, dolorem alias vel quidem odit tempore tenetur architecto laborum!</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident nihil accusantium fugiat repudiandae deleniti fugit, saepe veniam nostrum numquam mollitia, deserunt, dolorem alias vel quidem odit tempore tenetur architecto laborum!</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident nihil accusantium fugiat repudiandae deleniti fugit, saepe veniam nostrum numquam mollitia, deserunt, dolorem alias vel quidem odit tempore tenetur architecto laborum!</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident nihil accusantium fugiat repudiandae deleniti fugit, saepe veniam nostrum numquam mollitia, deserunt, dolorem alias vel quidem odit tempore tenetur architecto laborum!</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident nihil accusantium fugiat repudiandae deleniti fugit, saepe veniam nostrum numquam mollitia, deserunt, dolorem alias vel quidem odit tempore tenetur architecto laborum!</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident nihil accusantium fugiat repudiandae deleniti fugit, saepe veniam nostrum numquam mollitia, deserunt, dolorem alias vel quidem odit tempore tenetur architecto laborum!</p>
+
+</body>
+</html>

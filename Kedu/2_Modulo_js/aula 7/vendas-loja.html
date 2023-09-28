@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Categoria</th>
+                <th>Preço</th>
+                <th>Preço com desconto</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <p>Total de vendas: R$ <span id="total_vendas"></span></p>
+    <p>Total de desconto de Móveis: R$ <span id="desconto_movel"></span></p>
+    <p>Total de desconto de Eletrônicos: R$ <span id="desconto_eletronico"></span></p>
+
+    <script>
+        let tbody = document.querySelector("tbody")
+        let total_vendas = document.querySelector("#total_vendas")
+        let desconto_movel = document.querySelector("#desconto_movel")
+        let desconto_eletronico = document.querySelector("#desconto_eletronico")
+
+        let vendas = [
+            { nome: 'Geladeira', categoria: 'Eletrônico', preco: 2500, desconto: 0 },
+            { nome: 'Sofá', categoria: 'Móvel', preco: 900, desconto: 30 }, 
+            { nome: 'Televisão', categoria: 'Eletrônico', preco: 3000, desconto: 10 },
+            { nome: 'Notebook', categoria: 'Eletrônico', preco: 4100, desconto: 5 },
+            { nome: 'Cama Box', categoria: 'Móvel', preco: 1300, desconto: 15 },
+            { nome: 'Estante', categoria: 'Móvel', preco: 600, desconto: 10 },
+        ]
+
+        function mostrarProdutosLoja(categoria = '') {
+            tbody.innerHTML = ""
+
+            if(categoria) {
+                let vendasFiltradas = vendas.filter(produto => produto.categoria === categoria)
+                
+                vendasFiltradas.forEach(produto => {
+                     let desconto = produto.preco - (produto.preco * produto.desconto / 100)
+    
+                    tbody.innerHTML += `
+                        <tr>
+                            <td>${produto.nome}</td>
+                            <td>${produto.categoria}</td>
+                            <td>R$ ${produto.preco.toFixed(2)}</td>
+                            <td>R$ ${desconto.toFixed(2)}</td>
+                        </tr>
+                    `
+                })
+
+                calcularTotalVendas(vendasFiltradas)
+
+                return
+            }
+
+            vendas.forEach(produto => {
+                let desconto = produto.preco - (produto.preco * produto.desconto / 100)
+
+               tbody.innerHTML += `
+                   <tr>
+                       <td>${produto.nome}</td>
+                       <td>${produto.categoria}</td>
+                       <td>R$ ${produto.preco.toFixed(2)}</td>
+                       <td>R$ ${desconto.toFixed(2)}</td>
+                   </tr>
+               `
+           })
+
+           calcularTotalVendas(vendas)
+
+        }
+
+        function calcularTotalVendas(array) {
+            let total = array.reduce((acc, produto) => acc + produto.preco, 0)
+
+            total_vendas.innerHTML = total.toFixed(2)
+        }
+
+
+        function mostrarTotalDescontoPorCategoria() {
+            let totalDescontoEletro = vendas.filter(produto => produto.categoria === "Eletrônico").reduce((acc, produto) => {
+                    let desconto = produto.preco * produto.desconto / 100
+
+                    return acc + desconto
+                }, 0)
+
+            let totalDescontoMovel = vendas.filter(produto => produto.categoria === "Móvel").reduce((acc, produto) => {
+                    let desconto = produto.preco * produto.desconto / 100
+
+                    return acc + desconto
+                }, 0)
+
+                desconto_movel.innerHTML = totalDescontoMovel.toFixed(2)
+                desconto_eletronico.innerHTML = totalDescontoEletro.toFixed(2)
+        }
+        
+        mostrarTotalDescontoPorCategoria()
+        mostrarProdutosLoja()
+    </script>
+</body>
+</html>

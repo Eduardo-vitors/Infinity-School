@@ -1,0 +1,136 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+header {
+   /*  background-color: rgb(231, 124, 124); */
+   background-color: beige;
+   display: flex;
+   align-items: center;
+   justify-content: flex-start;
+   padding: 30px 15px;
+}
+header div{
+    display: flex;
+    align-items: center;
+}
+
+header span{
+    font-size: 50px;
+    font-weight: bold;
+}
+header img{
+    width: 50px;
+}
+
+#nav_principal {
+    background-color: beige;
+    list-style: none;
+    display: flex;
+}
+
+#nav_principal a {
+    color: black;
+    text-decoration: none;
+    font-size: 35px;
+    padding-inline: 30px;
+}
+
+#nav_principal li:hover a {
+    text-decoration: underline;
+}
+
+#nav_principal li:not(:first-of-type) {
+    border-left: 1px solid black;
+}
+
+main h1,h2{
+    text-align: center;
+    font-size: 40px;
+    margin-block: 50px;
+    color:yellowgreen;
+}
+
+#home{
+    display: flex;
+    justify-content: space-evenly;
+    gap:30px;
+}
+
+.card{
+    width: 300px;
+    border:1px solid rgb(145, 71, 71);
+    border-radius: 20px;
+    padding:20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    position: relative;
+}
+.card::before{
+    content: "";
+    height: 4px;
+    background-color: green;
+    width: 0;
+    position: absolute;
+    top:10px;
+    transition: 0.4s;
+    align-self: flex-start;
+}
+
+.card:hover a{
+    display:block
+}
+.card:hover::before{
+    width: 90%;
+}
+.card img{
+    width: 280px;
+}
+
+.card span{
+    width: 300px;
+    font-size: 20px;
+    color: gray;
+    border-top: 1px dashed gray;
+    text-align: center;
+    padding-top: 20px;
+}
+
+.card a{
+    text-decoration: none;
+    background:linear-gradient(180deg,green, rgb(0, 80, 0));
+    color:white;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid darkgreen;
+    text-transform: uppercase;
+    position: absolute;
+    top:25%;
+    display:none;
+}
+h1, caption {
+    color: yellowgreen;
+}
+
+table, th, td {
+    text-align: center;
+    margin-block: 10px;
+    margin-bottom: 25px;
+    border: 1px solid rgb(0, 0, 0);
+    border-collapse: collapse;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 25px;
+    background-color: antiquewhite;
+    padding:5px
+}
+
+img {
+    width: 250px;
+    height: 150px;
+}

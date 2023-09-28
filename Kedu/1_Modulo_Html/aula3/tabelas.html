@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table border="1"><!-- Abre o escopo de uma tabela -->
+        <caption>Funcionarios da turma 612</caption><!--  Nome da tabela -->
+        <thead> <!--  Tag semantica de tabela que guarda cabeçalho -->
+            <tr><!-- "tr" table row,cria uma linha -->
+                <th>Nome</th><!-- "th" table header, delimita um cabeçalho -->
+                <th>Cargo</th><!-- "th" table header, delimita um cabeçalho -->
+                <th colspan="2">Telefones</th><!-- "th" table header, delimita um cabeçalho -->
+            </tr>
+        </thead>
+
+        <tbody><!-- Tag semantica de corpo de tabela -->
+            <tr>
+                <td rowspan="2">Fernanda</td><!-- table data, delimita um dado de uma tabela -->
+                <td>Professora</td><!-- table data, delimita um dado de uma tabela -->
+                <td rowspan="2">713555565255</td><!-- table data, delimita um dado de uma tabela -->
+                <td rowspan="2">713542411255</td><!-- table data, delimita um dado de uma tabela -->
+            </tr>
+            <tr>
+                <td>coordenadora</td>
+            </tr>
+            <tr>
+                <td>Erick</td><!-- table data, delimita um dado de uma tabela -->
+                <td>Monitor</td><!-- table data, delimita um dado de uma tabela -->
+                <td>17125415454</td><!-- table data, delimita um dado de uma tabela -->
+                <td>41455465454</td><!-- table data, delimita um dado de uma tabela -->
+            </tr>
+            <tr>
+                <td>Pedro Henrique</td><!-- table data, delimita um dado de uma tabela -->
+                <td>Coordenador Interino</td><!-- table data, delimita um dado de uma tabela -->
+                <td>741515125152</td><!-- table data, delimita um dado de uma tabela -->
+                <td>741000000000</td><!-- table data, delimita um dado de uma tabela -->
+             </tr>
+        </tbody>
+
+        <tfoot><!-- delimita um rodapé da tabela, é opcional -->
+            <tr>
+                <th colspan="2">quantidade de funcionarios</th>
+                <td colspan="2">3 funcionarios</td>
+            </tr>
+        </tfoot>
+        
+    </table>
+
+
+
+    <!--  maneira difrente de se fazer -->
+    <table border="1"><!-- Abre o escopo de uma tabela -->
+        <caption>Funcionarios da turma 612</caption><!--  Nome da tabela -->
+        <tr><!-- "tr" table row,cria uma linha -->
+            <th>Nome</th><!-- "th" table header, delimita um cabeçalho -->
+            <td>Fernanda</td><!-- table data, delimita um dado de uma tabela -->
+            <td>Erick</td><!-- table data, delimita um dado de uma tabela -->
+            <td>Pedro Henrique</td><!-- table data, delimita um dado de uma tabela -->
+        </tr>
+        <br>
+        <tr>
+            <th>Cargo</th><!-- "th" table header, delimita um cabeçalho -->
+            <td>Professora</td><!-- table data, delimita um dado de uma tabela -->
+            <td>Monitor</td><!-- table data, delimita um dado de uma tabela -->
+            <td>Coordenador Interino</td><!-- table data, delimita um dado de uma tabela -->
+        </tr>
+    </table>
+</body>
+</html>

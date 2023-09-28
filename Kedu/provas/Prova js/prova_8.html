@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livro</title>
+</head>
+<body>
+    <script>
+        let infoLivro_JSON=
+            {
+                "titulo": "Sherlock Holmes: A Study in Scarlet",
+                "autor": "Sir Arthur Conan Doyle",
+                "paginas": "216"
+            }
+
+        imprimirInformacoesDoLivro(infoLivro_JSON)
+
+       function imprimirInformacoesDoLivro(livro){
+        console.log(`O livro ${livro.titulo}, escrito por ${livro.autor}, tem ${livro.paginas} páginas.`)
+        }
+    </script>
+</body>
+</html>

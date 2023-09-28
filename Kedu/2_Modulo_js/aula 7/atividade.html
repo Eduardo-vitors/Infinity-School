@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table,th,td{
+            border:1px solid black;
+            border-collapse: collapse;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>categoria</th>
+            </tr>
+        </thead>
+        <tbody id="q"></tbody>
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Preco</th>
+                <th>Preco com desconto</th>
+            </tr>
+    </thead>
+    <tbody id="text"></tbody>
+        
+    </table>
+
+    <script>
+            const vendas = [
+            { nome: 'Geladeira', categoria: 'Eletrônico', preco: 2500, desconto: 0},
+            { nome: 'Sofá', categoria: 'Móvel', preco: 900, desconto: 30},
+            { nome: 'Televisão', categoria: 'Eletrônico', preco: 3000, desconto: 10},
+            { nome: 'Notebook', categoria: 'Eletrônico', preco: 4100, desconto: 5},
+            { nome: 'Cama Box', categoria: 'Móvel', preco: 1300, desconto: 15},
+            { nome: 'Estante', categoria: 'Móvel', preco: 600, desconto: 10},
+        ]
+        
+        let tbody=document.querySelector("#q")
+        vendas.forEach((venda,index,array)=>{
+            tbody.innerHTML+=`
+                <tr>
+                    <td>${venda.nome}</td>
+                    <td>${venda.categoria}</td>
+                </tr>
+                `
+        })
+                        /* Exercicio 2 */
+        let itemCategoriaEletronico = vendas.filter((venda)=>{
+            return venda.categoria=='Eletrônico'
+        })
+        itemCategoriaEletronico.forEach((venda,index,array)=>{
+            console.log(venda.nome)
+        })
+                      /* Exercicio 3 */
+                      let tbody2=document.querySelector("#text")
+        vendas.forEach((venda,index,array)=>{
+            tbody2.innerHTML+=`
+                <tr>
+                    <td>${venda.nome}</td>
+                    <td>${venda.preco}</td>
+                    <td>${venda.preco-(venda.preco*venda.desconto/100)}</td>
+                </tr>
+                `
+                      }
+                      )
+
+        /* Exercicio 4 */
+        let totalValor= vendas.reduce((acumulador,venda,index,array)=>{
+            return acumulador+venda.preco
+        }, 0 )
+        console.log(totalValor)
+
+        /* Exercicio 5 */
+
+        
+        /* Exercicio 6 */
+        let descontods=vendas.reduce((acumulador,venda,i,arr)=>{
+            if((venda.preco-(venda.preco*venda.desconto/100))<acumulador.preco-(acumulador.preco*acumulador.desconto/100)){
+                acumulador=venda
+            }
+            return acumulador
+        })
+        console.log(descontods.nome)
+    </script>
+</body>
+</html>

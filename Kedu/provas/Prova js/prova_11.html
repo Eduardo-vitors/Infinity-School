@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Usuários</title>
+</head>
+<body>
+    <h1>O TOP 20 NOMES MAIS UTILIZADO SEGUNDO O IBGE:</h1>
+    <p id="user-list"></p>
+    <p id="error-message" style="color: red;"></p>
+    <script>
+
+        function usuarios() {{
+            fetch('https://numbersapi.com/random')
+            .then(response => {
+                    // Verifica se a resposta da API é bem-sucedida 
+                    if (!response.ok) {
+                        throw new Error('Não foi possível obter a lista de usuários');
+                    }
+                    return response.json(); // Converte a resposta para JSON
+                })
+                .then(data => {
+                    const userList = document.getElementById('user-list');
+                    for (info of data){
+                        info.res.forEach(element => {
+                            userList.innerHTML+= `<ul>${element.nome}</ul>`    
+                        });
+                    }
+                })
+                .catch(error => {
+                    const errorMessage = document.getElementById('error-message');
+                    errorMessage.innerHTML = error.message;
+                });
+        }
+    }
+        // Chama a função ao carregar a página
+         usuarios();
+    
+    </script>
+</body>
+</html>

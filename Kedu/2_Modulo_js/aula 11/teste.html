@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table,th,td{
+            border:1px solid black;
+            border-collapse: collapse;
+            padding: 10px;
+        }
+        label{
+            display:block;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Idade</th>
+                <th>Cidade</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+    <form id="form">
+    <div>
+        <label>ID:
+            <input id="id" type="number" placeholder="Qual ID ?"/>
+        </label>
+        <label>Nome:
+            <input id="name" type="text" placeholder="Digite seu Nome"/>
+        </label>
+       
+        <label>Idade:
+            <input id="age" type="number" placeholder="Digite sua Idade"/>
+        </label>
+        <label>Cidade:
+            <input id="city" type="text" placeholder="Qual a sua Cidade"/>
+        </label>
+        <label> 
+            Tipo de Requisição 
+            <select id="tipo_requisicao">
+                <option value="Selecione">Selecione</option>
+                <option value="Cadrasto">Cadrasto</option>
+                <option value="edicao">Edição</option>
+            </select>
+            <button>Enviar</button>
+
+        </label>
+    </div>
+    </form>
+
+    <script>
+
+
+        let tbody=document.querySelector("tbody")
+        
+        // o fetch sempre retorna um objeto de promise que é literalmente uma promessa de que ele vai tentar pegar os dados la no  backend, mas ele não promete conseguir, apenas tentar
+        function captarUsuario(){
+        fetch("http://localhost:80/api")
+        .then((resposta)=> resposta.json())
+        .then((dados)=>{
+            dados.forEach((usuario) => {
+                tbody.innerHTML+=`
+                <tr>
+                    <td>${usuario.id}</td>
+                    <td>${usuario.name}</td>
+                    <td>${usuario.age}</td>
+                    <td>${usuario.city}</td>
+                </tr>
+                `
+            })
+        })
+        .catch((erro)=>{console.log(erro)})//são um pouco diferente em relação ao try
+        .finally(()=>{/* alert("??????") */})
+    }
+
+  /*       fetch("http://localhost:80/api/1",{
+            method:"PUT",
+            body:JSON.stringify({name:"Libelle", age: 25}),
+            headers:{
+                "Content-type":"application/json"
+            }
+        })
+        .then(resposta=>resposta.json)
+        .then(dado=>console.log(dado))
+        .catch(erro=>console.log(erro)) */
+
+/* function Adicionar(){
+
+        fetch("http://localhost:80/api",  {
+            method:"POST",
+            body:JSON.stringify({
+                name:nomes ,age:IDADE ,city:CIDADE
+            }), headers:{
+                "Content-type": "application/json"
+            }
+        })
+        .then(resposta=>resposta.json())
+        .then((dado)=>{console.log(dado)}) 
+    } */
+function Deletar(){
+        fetch("http://localhost:80/api/2",{
+            method:"DELETE"
+    })
+    .then(resposta=>resposta.json())
+    .then((dado)=>{console.log(dado)})
+}
+    </script>
+</body>
+</html>

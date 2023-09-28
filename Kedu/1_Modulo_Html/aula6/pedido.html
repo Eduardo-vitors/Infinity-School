@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <link rel="stylesheet" href="pedido.css" />
+    <title>Pedido</title>
+</head>
+<body>
+    <header>
+        <div>
+            <span>pizza</span>
+            <img src="../assets/pizza.png"/>
+        </div>
+
+    <nav>
+        <ul id="nav_principal">
+            <li><a href="./pizzaria_Final.html">INÍCIO</a></li>
+            <li><a href="#combo">COMBOS</a></li>
+            <li><a href="#cardapio">CARDÁPIO</a></li>
+            <li><a href="#contato">CONTATO</a></li>
+            <li><a href="./pedido.html">PEDIDO</a></li>
+        </ul>
+    </nav>
+</header>
+<main>
+        <h1> Pizzaria Turtle Ninja</h1>
+    <form>
+            <!-- CAMPO DE TEXTO -->
+        <h2 style="text-align: center;color: blue;"> Formulário para o Pedido</h2>
+        <label for="nome"></label>Nome Do cliente</label>
+        <input type="text" id="nome" name="nome"/>
+
+        <label for="data"></label>Data De Entrega</label>
+        <input type="DATE" id="DATA" name="DATA" />
+        <br><br>
+        <p>Tamanho da Pizza:</p>
+        <label>P <input type="radio" name="tamanho" value="p"/> </label>
+        <label>M <input type="radio" name="tamanho" value="m"/> </label>
+        <label>G <input type="radio" name="tamanho" value="g"/> </label>
+        <label>F <input type="radio" name="tamanho" value="f"/> </label>
+        <br><br>
+        <p>Deseja tirar algum ingrediente:</p>
+        <label>
+            cebola<input type="checkbox" name="ingrediente a retirar" value="cebola"/>
+        </label>
+        <label>
+            azeitona<input type="checkbox" name="ingrediente a retirar" value="azeitona"/>
+        </label>
+        <label>
+            pimentão<input type="checkbox" name="ingrediente a retirar" value="pimentao"/>
+        </label>
+        <br><br>
+        <p>Qual o Combo:</p>
+        <label>
+            Combo 3 pizza<input type="checkbox" name="combo_1" value="combo_1"/>
+        </label>
+        <label>
+        Combo família<input type="checkbox" name="combo_2" value="combo_2"/>
+        </label>
+        <label>
+        Combo Mini rodízio<input type="checkbox" name="combo_3" value="combo_3"/>
+        </label>
+        <br><br>
+        <label> Sabor da pizza:
+            <select id="sabor" name="sabor">
+            <option value="calabresa">Calabresa</option>
+            <option value="mussarela">Mussarela</option>
+            <option value="frango com catupiry">frango</option>
+        </select>
+</label>
+<br><br>
+            <!--CAIXA DE TEXTO  -->
+        <h4>COMENTÁRIOS</h4>
+        <label><textarea rows="10" cols="40" maxlength="250"></textarea></label>
+        <br>
+        <!-- BOTÃO PARA RESET E ENVIO -->
+        <button type="submit">SUBMIT</button>
+        <button type="reset">RESET</button> 
+    </form>
+</main>
+</body>
+</html>   

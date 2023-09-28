@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table,th,td{
+            border:1px solid black;
+            border-collapse: collapse;
+            padding: 10px;
+        }
+        label{
+            display:block;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    
+    
+    
+    <!-- //<button onclick="mostrarAtletas()">mostrar</button>  -->
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Esporte</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+    <div>
+        <label>Nome
+            <input id="nome" type="text" placeholder="Digite seu nome"/>
+        </label>
+       
+        <label>Esporte
+            <input id="esporte" type="text" placeholder="Digite seu esporte"/>
+        </label>
+        <button onclick="Adicionar()">Adicionar</button> 
+    </div>
+    <script>
+       // let input = document.querySelector('input')
+        let atletas=[
+            {nome:"Eduardo", esporte:"futsal"},
+            {nome:"Fernanda", esporte:"natacao"},
+            {nome:"Noel", esporte:"handball"},
+            {nome:"Carla", esporte:"handball"},
+        ]
+
+        let tbody=document.querySelector("tbody")
+        function mostrarAtletas(){
+            tbody.innerHTML=""
+            for(let atleta of atletas){
+                tbody.innerHTML+=`
+                <tr>
+                    <td>${atleta.nome}</td>
+                    <td>${atleta.esporte}</td>
+                </tr>
+                `
+            }
+        }
+        function Adicionar(){
+        /*  let input_nome = document.getElementById("nome")
+            let input_esporte = document.getElementById('esporte')
+            let nome= input_nome.value
+            let esporte= input_esporte.value */
+           // atletas.push(atletas.nome=nome,atletas.esporte=esporte)
+
+           let nome =document.querySelector("#nome").value
+           let esporte =document.querySelector("#esporte").value
+           if(!nome || !esporte){
+            alert("Prencha todos os campos")
+            return;
+           }
+           let novoAtleta={
+            nome,esporte
+            /* nome:nome,
+            esporte:esporte */
+           }
+           atletas.push(novoAtleta)
+           mostrarAtletas()
+        }
+        function verificar_quant_esporte(){
+            let esportes={}
+            for(let atleta of atletas){
+                if(esportes[atleta.esporte.toLowerCase()]){
+                    esportes[atleta.esporte.toLowerCase()]+=1
+                }else{
+                    esportes[atleta.esporte.toLowerCase()]=1
+                }
+            }
+            let chave=''
+            let valor=0
+
+            for(let esporte in esportes){
+                if(esportes[esporte]>valor){
+                    valor=esportes[esporte] 
+                    chave=esporte
+                }
+              /*   esporte // chave
+                esportes[esporte] // valor */  
+            }
+            alert(`O esporte mais praticado é ${chave}, com ${valor}`)
+        }
+verificar_quant_esporte()
+mostrarAtletas()
+    </script>
+</body>
+</html>

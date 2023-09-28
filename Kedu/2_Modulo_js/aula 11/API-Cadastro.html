@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch</title>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Idade</th>
+                <th>Cidade</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <form id="form">
+        <div>
+            <label>Nome</label>
+            <input type="text" id="name" />
+        </div>
+        <div>
+            <label>Idade</label>
+            <input type="number" id="age" />
+        </div>
+        <div>
+            <label>Cidade</label>
+            <input type="text" id="city" />
+        </div>
+        <div class="id_usuario" style="display: none;">
+            <label>Id do usuario</label>
+            <input type="number" id="id_usuario" />
+        </div>
+        <label>
+            Tipo de requisição
+            <select id="tipo_requisicao">
+                <option value="">Selecione</option>
+                <option value="cadastro">Cadastro</option>
+                <option value="edicao">Edição</option>
+            </select>
+        </label>
+        <button>Enviar</button>
+    </form>
+
+    <script>
+        let tbody = document.querySelector("tbody")
+        let form = document.querySelector("#form")
+        let select = form.tipo_requisicao
+
+        select.addEventListener("change", mostrarCampoId)
+
+        form.addEventListener("submit", validarFormulario)
+        /* o fetch sempre retorna um objeto de promise que é
+        literalmente uma promessa de que ele vai tentar pegar os
+        dados la no backend, mas ele não promete conseguir, apenas tentar */
+
+        function mostrarCampoId() {
+            let div_id = document.querySelector(".id_usuario")
+
+            if(select.value === 'cadastro' || !select.value) {
+                div_id.style.display = "none"
+            } else {
+                div_id.style.display = "block"
+            }
+        }
+
+        function captarUsuarios() {
+            tbody.innerHTML = ''
+
+            fetch("http://localhost:80/api") //promise assincrona
+            .then((resposta) => resposta.json())
+            .then((dados) => {
+                dados.forEach(usuario => {
+                    tbody.innerHTML += `
+                        <tr>
+                            <td>${usuario.id}</td>
+                            <td>${usuario.name}</td>
+                            <td>${usuario.age}</td>
+                            <td>${usuario.city}</td>
+                        </tr>
+                    `
+                })
+            })
+            .catch((erro) => {console.log(erro)})
+            .finally(() => {})
+        }
+
+        function validarFormulario(eventoDeSubmit) {
+            eventoDeSubmit.preventDefault()
+
+            if(!form.tipo_requisicao.value) {
+                alert("Escolha o tipo de requisição")
+                return;
+            }
+ 
+            if(form.tipo_requisicao.value === 'cadastro' && 
+                (!form.name.value || 
+                !form.age.value || 
+                !form.city.value)
+            ) {
+                alert("Preencha todos os valores")
+                return;
+            }
+
+            const novoUsuario = {
+                name: form.name.value,
+                age: Number(form.age.value),
+                city: form.city.value
+            }
+
+            if(form.tipo_requisicao.value === 'cadastro') {
+                fetch("http://localhost:80/api", {
+                    method: "POST",
+                    body: JSON.stringify(novoUsuario),
+                    headers: {
+                        "Content-type": "application/json"
+                    }
+                })
+                .then(resposta => resposta.json())
+                .then(dado => {
+                    alert(dado)
+                    captarUsuarios()
+                }) 
+
+                return;
+            }
+        
+            if(!form.id_usuario.value) {
+                alert("Você precisa informar um id para edição")
+                return;
+            }
+
+            let array1 = [1,2,3,4,5]
+            let novoArray = [...array1, 6, 7] //[1,2,3,4,5, 6, 7]
+
+            fetch(`http://localhost:80/api/${form.id_usuario.value}`, {
+                method: "PUT",
+                body: JSON.stringify(novoUsuario),
+                headers: {
+                    "Content-type": "application/json"
+                }
+            })
+            .then(resposta => resposta.json())
+            .then(dado => {
+                alert(dado)
+                captarUsuarios()
+            })
+            .catch(erro => console.log(erro))
+        }
+
+        fetch("http://localhost:80/api/10", {
+            method: "DELETE"
+        })
+        .then(resposta => resposta.json())
+        .then(dado => console.log(dado))
+
+        captarUsuarios()
+    </script>
+</body>
+</html>

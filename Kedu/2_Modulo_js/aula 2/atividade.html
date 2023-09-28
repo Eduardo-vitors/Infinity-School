@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<input id= "texto" type="text" placeholder="Digite uma frase" />
+<button onclick="verificar()">verificar</button>
+
+    <script>
+        //maneira um
+       /*  let frase =(prompt("digite uma frase")).length
+       // let caracter=frase.length
+        if(frase<21){
+            alert("O texto é pequeno")
+        }else if(frase<31){
+            alert("O texto é medio")
+        }else if(frase<41){
+            alert("O texto é grande")
+        }else{
+            alert("não vou ler isso")
+        } */
+        // Maneira 2
+        function verificar(){
+            let texto=document.getElementById("texto").value
+            texto = texto.length
+         /*    if(texto<=20){
+                alert("O texto é pequeno")
+            }else if(texto<=30){
+                alert("O texto é medio")
+            }else if(frase<=40){
+                alert("O texto é grande")
+            }else{
+                alert("não vou ler isso")
+            } */
+             //ternário
+        texto<=20 ?  alert("O texto é pequeno"):
+        texto<=30 ?  alert("O texto é medio") :
+        texto<=40 ?  alert("O texto é grande") :
+        alert("não vou ler isso")
+        }
+       
+
+
+</script>
+</body>
+</html>

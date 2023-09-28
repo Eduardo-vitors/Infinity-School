@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- Eleição -->
+    <label for="ano">Qual o ano que vc nasceu?</label>
+    <input id= "ano" type="Number" placeholder="Qual o ano que vc nasceu?" />
+    <button onclick="verificar()">verificar</button>
+     <!-- Numero par -->
+    <label for="numero">Digite um numero</label>
+     <input id= "numero" type="Number" placeholder="Digite um numero" />
+     <button onclick="verificar_par()">verificar</button> 
+     <!-- Switch -->
+     <label for="tempo">qual o seu mes de nascimento</label>
+     <input id= "tempo" type="Number" placeholder="Digite o mês que nasceu" />
+     <button onclick="verificar_mes()">verificar</button> 
+
+    <script>
+        /* Eleição */
+        function verificar(){
+            let ano=Number(document.getElementById("ano").value)
+            let idade = /* (new Date().getFullYear) */2023- ano
+            if(idade<=15){
+                alert("não vota")
+            }else if(idade>17 && idade<70){
+                alert("obrigatorio votar")
+            }else{
+                alert("opcional")
+            }
+        } 
+        /* numero par */
+        function verificar_par(){
+            let numero=document.getElementById("numero").value
+            numero%2===0 ? alert("PAR") : alert("IMPAR")
+        }
+        /* Switch */
+        function verificar_mes(){
+            let mesa=Number(document.getElementById("tempo").value)
+            switch(mesa){
+                case 1:
+                    alert("janeiro")
+                    break
+                case 2:
+                   alert("fevereiro")
+                    break
+                case 3:
+                    alert("março")
+                    break
+                case 4:
+                    alert("abril")
+                    break
+                case 5:
+                   alert("maio")
+                    break
+                case 6:
+                   alert("junho")
+                    break
+                case 7:
+                    alert("julho")
+                    break
+                case 8:
+                    alert("agosto")
+                    break
+                case 9:
+                    alert("setembro")
+                    break 
+                case 10:
+                   alert("outubro")
+                    break
+                case 11:
+                    alert("novembro")
+                    break
+                case 12:
+                    alert("dezembro")
+                    break
+                default:
+                    alert("Digitou o mês errado ERRO!!!!!!!!!!!!!!!! ")
+            }
+        }
+    </script>
+</body>
+</html>

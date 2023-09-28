@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <script>
+        // JAVASCRIPT pode ser dentro do programa ou pode ser igual ao CSS, É mais indicado utilizar ele na body.
+    </script> -->
+</head>
+<body>
+    <!-- <script src="./aula_1.js"></script>  Não vai utilizar hoje -->
+    <p id="paragrafo"></p>
+
+   <!--  <input type="text" /> -->
+
+    <script>
+//---------------------------------------variaveis---------------------------------------------------------------------------------
+           /* var paragrafo = document.getElementById("paragrafo")  NÃO se utilizar mais */
+           let nome = "Eduardo" // string
+           /* Cria uma variavel de escopo local  que não pode ser redeclarada(recriada), porém posso mudar o valor posteriormente */
+            nome="vitor"
+            const paragrafo = document.getElementById("paragrafo")
+            /* Cria uma variavel de escopo local que não pode mudar o valor posteriormente(somente leitura) */
+           //const Ano= 2023 number
+//----------------------------------------------OPERADORES--------------------------------------------------------------------------/
+        let nome1="eduardo"//string
+        let nome2="vitor"//string
+        let ano=2023 //number
+        let ealunodainfinity=true// boolean
+
+        //nome1+nome2 // "eduardovitor"
+       /*  console.log("5"+2)
+        console.log("5"-2) */
+        //NOt a Number NAN
+
+        let num1 =10
+        let num2 =20
+
+        //num2=num1+num2
+        num2+=num1
+        //num++ incremento de 1
+        num2++
+        num2--//decremento de 1
+        console.log(num2)
+//---------------------------------------------TAG----------------------------------------------------------------------------------
+         /*   document.getElementById("paragrafo").innerHTML ="<span style ='color: red'>Teste</span>" pode ser escrito assim mas é melhor a opção de baixo */
+         paragrafo.innerHTML ="<span style ='color: red'>Teste</span>"
+         console.log(paragrafo)
+//---------------------------DISPLAY-------------------------------------------------------------------------------------------------
+/*         window.document.write("o que esta ACONTECENDO")  NÃO SE UTILIZA POIS APAGA TODO SEU HTML*/
+    /*     window.alert("Hello World")
+           console.log("hello World") */
+           /* = tag p */
+          /* window é o meu objeto da janela do navegador de dentro dele eu tenho o objeto document, quye é referente ao meu documento HTML. De dentro de document, eu tenho alguns métodos, um deles é o getElementById(), que dependendo do id, eu capto uma tag HTML */
+    </script>
+<!--   <p></p>
+    
+
+  <script>
+  const paragrafo = document.getElementById("paragrafo")
+  paragrafo.innerHTML ="<button onclick='alert('hello world')> Profissao</button>"
+  </script> -->
+</body>
+</html>

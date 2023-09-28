@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Laço de repetição FOR</h1>
+    <p id="res"></p>
+    <h1>Laço de repetição WHILE</h1>
+    <p id="res2"></p>
+    <script>
+        let p =document.getElementById("res")
+        let p2 =document.getElementById("res2")
+        let j =0
+        for(let i=0;i<10;i++){
+                p.innerHTML+=`${i}<br>`
+            }
+        while(j<10){
+            p2.innerHTML+=`${j}<br>`
+            j++
+        }
+    </script>
+</body>
+</html>

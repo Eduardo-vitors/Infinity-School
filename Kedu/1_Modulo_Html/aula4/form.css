@@ -1,0 +1,104 @@
+/* --------------------Seletores simples---------- */
+
+h1 {
+    color: rgb(21, 0, 255);
+    text-align: center;
+}
+
+p{
+    border: 1px solid black;
+    border-collapse: collapse;/*  para as bordas se juntarem */
+    /* margin-rigth/left="auto" deixa a tabela no meio */
+}
+.p-roxo{
+    color: rgb(220, 213, 12);
+}
+
+.p-verde{
+    color: rgb(20, 220, 57);
+}
+
+.primeiro-p{/* se colocar para o final todos terão essa cor */
+    text-align: center;
+    ;
+}
+#ultimo-p{
+    color: aqua;
+}
+
+/* ------------Seletor composto------------ */
+
+.primeiro-p,.segundo-p{
+    color: red;
+}
+/* seletor de filhos não diretos */
+ul a{
+    text-decoration: none;
+}
+/* seletor de filhos diretos */
+ul>li>a{
+    color: cornflowerblue;
+}
+
+/* --------------Seletor de adjacentes/irmão indireto */
+
+/* ul~p{
+     background-color: aquamarine; 
+} */
+
+/* seletor de adjacentes/irmao direto */
+ul+p{
+    background-color: rgb(0, 106, 255);
+}
+
+a{
+    text-decoration: none;
+    color: black;
+    border: 1px solid black;
+    border-radius: 50%;
+
+}
+/*-------------- pseudo-classes------------------- */
+
+a:hover{
+    color: aqua;
+}/* só funciona quando passa o mouse emcima */
+
+a:active{
+    text-decoration: none;
+    color: chartreuse;
+}/* funciona quando faz um click no elemento */
+
+a:last-of-type{/* pode ser first or last */
+  /*   background-color: blue; */
+}
+a:nth-of-type(2n-1){
+   /*  background-color: burlywood; */
+}
+
+a:not(:nth-of-type(2n-1)){
+    background-color: burlywood;
+}
+
+/* -------Pseudo-elementos------------ */
+input::placeholder{
+    color: blue;
+}
+div{
+    height: 70px;
+   /*  overflow-y: auto; */
+}
+div::-webkit-scrollbar{
+    background-color: rgb(179, 179, 209);
+}
+div::before{
+    content: "texto";
+    color: aqua;
+    background-color: black;
+}
+
+div::after{
+    content: "texto";
+    color: aqua;
+    background-color: black;
+}

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="number" placeholder="Digite um numero"/>
+    <button onclick="primo()">Verificar</button>
+    <script>
+         function primo(){
+            let numero= Number(document.querySelector("input").value)
+            let conter=0
+            for(let i=1;i<=numero;i++){
+                if(numero%i==0){
+                    conter++
+                }
+            }
+            if(conter>2){
+                alert("Ele não é primo")
+            }else{
+                alert("Ele é Primo")
+            }
+
+         } 
+    </script>
+</body>
+</html>

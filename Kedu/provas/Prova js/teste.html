@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+ // URL do endpoint para gerar um número aleatório inteiro
+const apiUrl = 'https://www.random.org/integers/?num=1&min=1&max=20&col=1&base=10&format=plain&rnd=new';
+
+// Fazer uma solicitação GET para a API
+fetch(apiUrl)
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Não foi possível obter os dados da API');
+    }
+    return response.text(); // A resposta é uma string de texto contendo o número aleatório
+  })
+  .then(data => {
+    // O resultado da API é retornado como uma string
+    const numeroAleatorio = Number(data); // Converter a string em um número inteiro
+    console.log(numeroAleatorio); // Imprime o número aleatório gerado
+  })
+  .catch(error => {
+    console.error('Ocorreu um erro:', error);
+  });
+</script>
+</body>
+</html>

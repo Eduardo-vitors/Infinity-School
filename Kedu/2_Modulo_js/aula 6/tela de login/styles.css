@@ -1,0 +1,46 @@
+body {
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+
+h1 {
+    font-size: 3rem;
+}
+
+.form {
+    border: 1px solid black;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 0 10px gray;
+
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    font-size: 1.4rem;
+}
+
+.form div {
+    width: 25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem
+}
+
+.form div input {
+    padding: 0.5rem;
+    outline: none;
+}
+
+.form button {
+    padding: 0.5rem;
+    font-size: 1.4rem;
+    border: none;
+    background-color: crimson;
+    color: white;
+    border-radius: 5px;
+}

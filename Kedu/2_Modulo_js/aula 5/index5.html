@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let idades = [12,15,24,62,74,30]
+        let demitido=[]
+        let tamanhovect=idades.length //quantos elementos eu tenho no vetor
+        //console.log(idades[tamanhovect-1])
+        //idades.push(30,47)// Acrescenta elementos no final do vetor
+       // idades.unshift(30,47)// Acrescenta elementos no inicio do vetor
+       /*  let demitidos = idades.pop()//remover o valor do ultimac posicao do vetor e retorna esse valor
+        demitido.push(idades.shift())//retira o valor do primeiro lugar do vetor e retorna esse valor
+        demitido.push(demitidos) */
+        for(let idade of idades){
+            console.log(idade+"for")
+        
+        }
+        for(let i=0;i<idades.length;i++){
+            console.log(idades[i]+ "Q")
+        }
+        idades.splice(3,2,18,23,25)
+        //console.log(idades)
+       // console.log(demitido)
+    </script>
+</body>
+</html>

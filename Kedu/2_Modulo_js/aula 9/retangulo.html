@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+        border: 1px solid black;
+        width: 400px;
+        height: 300px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        }
+        .cor1{
+            background-color: blue;
+        }
+        .cor2{
+            background-color: red;
+        }
+        .cor3{
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        Este retangulo muda de cor
+    </div>    
+    <button data-cor="blue" class="cor1">cor 1</button>
+    <button data-cor="red" class="cor2">cor 2</button>
+    <button data-cor="green" class="cor3">cor 3</button>
+
+    <script>
+        let buttons=document.querySelectorAll("button")
+        let div = document.querySelector("div")
+        buttons.forEach(button=>button.addEventListener("click",mudarCor))
+        div.addEventListener("mouseover",()=>{ div.style.background="white"})
+        function mudarCor(eventoDeClick){
+/*          div.classList=[]
+            div.classList.add(eventoDeClick.target.classList) */
+            div.style.backgroundColor=eventoDeClick.target.dataset.cor
+            //eventoDeClick.target.removeEventListener("click",mudarCor)
+        }
+    </script>
+    
+</body>
+</html>

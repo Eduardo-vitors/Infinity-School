@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" placeholder="Digite uma Cor"/>
+    <button onclick="Adicionar()">Verificar</button>
+    <ul></ul>
+    <script>
+        let cores = ["Azul","Vermelho","Verde","Preto","Amarelo"]
+        let ul= document.querySelector("ul")
+        let j=0
+        function Adicionar(){
+            let cor = document.querySelector('input').value
+            for(let i=0;i<cores.length;i++){
+                if(cores[i]==cor){
+                    j++
+                }
+                }
+          mostar()
+        }
+        function mostar(){
+           
+            ul.innerHTML=""
+            if(j>0){
+                ul.innerHTML+=`<li>Encontrado</li>`
+            }
+            else{
+                ul.innerHTML+=`<li>Não Encontrado</li>`
+            }
+            j=0
+        }
+    </script>
+</body>
+</html>

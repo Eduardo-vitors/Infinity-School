@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let usuario = {
+            nome:"Eduardo Vitor",
+            idade:25,
+            ativo:true,
+            telefones:["719999995641","892652126322"],
+            endereco:{
+                residencial:{
+                    numero:176,
+                    rua:"Tuiuti",
+                    bairro:"dois de julho",
+                    cidade:"Salvador"
+                },
+                comercial:{
+                    numero:1057,
+                    rua:"Alameda Salvador",
+                    bairro:"Alguma coisa",
+                    cidade:"Salvador"
+                },
+                
+            },
+            anoDeNascimento:()=>{return 2023-usuario.idade}
+        }
+        let usarios=[{
+            nome:"Eduardo Vitor",
+            idade:25,
+            ativo:true,
+            telefones:["719999995641","892652126322"],
+            endereco:{
+                residencial:{
+                    numero:176,
+                    rua:"Tuiuti",
+                    bairro:"dois de julho",
+                    cidade:"Salvador"
+                },
+                comercial:{
+                    numero:1057,
+                    rua:"Alameda Salvador",
+                    bairro:"Alguma coisa",
+                    cidade:"Salvador"
+                },
+                
+            },
+            anoDeNascimento:()=>{return 2023-usuario.idade}
+        }
+        ]
+      console.log(usuario["nome"])
+      console.log(usuario.endereco.residencial.cidade)
+      console.log(usuario.endereco.comercial.rua)
+      console.log(usuario.telefones[0])
+      console.log(usuario.anoDeNascimento())
+        console.log(Object.keys(usarios[0]))
+        console.log(Object.values(usarios[0]))
+    </script>
+</body>
+</html>

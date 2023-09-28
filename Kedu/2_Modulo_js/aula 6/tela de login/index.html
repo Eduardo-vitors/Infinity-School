@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles.css" />
+    <title>Tela de login</title>
+</head>
+<body>
+    <h1>Acesse sua conta</h1>
+    <div class="form">
+        <div>
+            <label for="email">E-mail</label>
+            <input type="email" id="email"/>
+        </div>
+        <div>
+            <label for="senha">Senha</label>
+            <input type="password" id="senha"/>
+        </div>
+
+        <button onclick="logar()">Logar</button>
+    </div>
+
+
+    <script>
+        const loginsValidos = [
+            {email: "nanda@email.com", senha: '123456'},
+            {email: "guilherme@email.com", senha: '654321'},
+            {email: "libellinhagamer123@email.com", senha: '101520'},
+        ]
+
+        function logar() {
+           let email =document.querySelector("#email").value
+           let senha =document.querySelector("#senha").value
+            for(let login of loginsValidos){
+                if(login.email===email){
+                    if(login.senha===senha){
+                        alert("LOGIN EFETUADO")
+                        return
+                    }else{
+                        alert("ERROU A SENHA OU EMAIL")
+                    }
+                }
+            }
+            alert("ERROU EMAIL")
+
+        }
+
+    </script>
+</body>
+</html>

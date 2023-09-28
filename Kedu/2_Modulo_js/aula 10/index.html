@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" placeholder="digite seu nome"/>
+    <button onclick="cadastra()">Cadastro</button>
+    <script>
+        function cadastra(){
+            try{
+                let input= document.querySelector("input")
+                if(!input.value){
+                    throw new Error("Digite algo")
+                }
+                alert("cadastrado!")
+            }catch(erro){
+                console.log(erro)/* pode colocar erro.name ou erro. message */
+            }finally{
+                console.log("cheguei ")
+            }
+        }
+    </script>
+</body>
+</html>

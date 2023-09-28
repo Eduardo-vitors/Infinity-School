@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <!--   <label>Nome<input type="text" /></label>  uma das formas de ligar a label ao input-->
+        <label for="nome"></label>Nome</label>
+        <input type="text" id="nome" name="nome"/>
+
+        <label for="email"></label>E-mail</label>
+        <input type="email" id="email" name="email" />
+
+        <label for="senha"></label>Informe uma senha</label>
+        <input type="password" id="senha" name="senha" />
+
+        <label for="quantidade"></label>Quantidade de pizza</label>
+        <input type="number" id="quantidade" name="quantidade" />
+        
+        <p>Tamanho da Pizza</p>
+        <label>P <input type="radio" name="tamanho" value="p"/> </label>
+        <label>M <input type="radio" name="tamanho" value="m"/> </label>
+        <label>G <input type="radio" name="tamanho" value="g"/> </label>
+        <label>F <input type="radio" name="tamanho" value="f"/> </label>
+        
+        <p>Deseja tirar alum ingrediente</p>
+        <label>
+            cebola<input type="checkbox" name="ingrediente a retirar" value="cebola"/>
+        </label>
+        <label>
+            azeitona<input type="checkbox" name="ingrediente a retirar" value="azeitona"/>
+        </label>
+        <label>
+            pimentão<input type="checkbox" name="ingrediente a retirar" value="pimentao"/>
+        </label>
+        
+        <label> Sabor da pizza
+            <select id="sabor" name="sabor">
+            <option value="calabresa">Calabresa</option>
+            <option value="mussarela">Mussarela</option>
+            <option value="peperonni">Peperonni</option>
+            <option value="atum">Atum</option>
+            <option value="frango">frango</option>
+        </select>
+</label>
+<label> Observações<textarea maxlength="200"></textarea></label>
+
+<button>enviar</button> <!--  envia o formulario -->
+<!--  pode receber uma tag img como valor -->
+<br>
+    <input type="button" value="teste"/>
+    <br>
+    <input type="submit" />
+    <br>
+    <input type="reset" />   
+     <!--    <button></button>
+        <textarea></textarea>
+        <select></select> -->
+    </form>
+    
+</body>
+</html>

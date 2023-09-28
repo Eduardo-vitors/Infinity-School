@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Conta</h1>
+    <form>
+    <h3>Entrada:</h3>
+    <input type="number" placeholder="Entrada" />
+    <h3>Refeição:</h3>
+    <input type="number" placeholder="Refeição"/>
+    <h3>Sobremesa</h3>
+    <input type="number" placeholder="Sobremesa"/>
+    <h3>Bebida:</h3>
+    <input type="number" placeholder="bebida" />
+    </form>
+
+    <p>Total de consumo:R$ <span id="consumo"></span></p>
+    <p>Gorjeta(10%):R$ <span id="gorjeta"></span></p>
+    <p>Valor a Pagar:R$ <span id="Total"></span></p>
+
+    <script>
+        let inputs= document.querySelectorAll("input")
+        let consumo= document.querySelector("#consumo")
+        let gorjeta= document.querySelector("#gorjeta")
+        let total= document.querySelector("#Total")
+        inputs.forEach(input => input.addEventListener("input",calcularConta))
+
+        function calcularConta(){
+            let totalConsumo=0
+            for(let input of inputs){
+               totalConsumo+=(Number(input.value))
+            }
+            consumo.innerHTML=converterParaReal(totalConsumo)
+            gorjeta.innerHTML=((0.1*totalConsumo).toFixed(2)).replace(".",",")
+            total.innerHTML=((totalConsumo+(0.1*totalConsumo)).toFixed(2)).replace(".",",")
+        }
+        function converterParaReal(valor){
+            return valor.toFixed(2).replace(".",",")
+        }
+    </script>
+</body>
+</html>

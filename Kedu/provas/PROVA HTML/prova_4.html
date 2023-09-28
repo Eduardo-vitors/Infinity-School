@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário</title>
+    <style>
+        form {
+            color: black;
+            background-color: aliceblue;
+            text-align: start;
+        }
+        main{
+            color: black;
+            background-color: aliceblue;
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+    <form>
+        <main>
+            <!-- CAMPO DE TEXTO -->
+        <h1 style="text-align: center;color: blue;"> Formulário</h1>
+        <label for="nome"></label>Nome Do Usuário</label>
+        <input type="text" id="nome" name="nome"/>
+
+        <label for="email"></label>E-mail</label>
+        <input type="email" id="email" name="email" /> 
+
+        <label for="data"></label>DATA</label>
+        <input type="DATE" id="DATA" name="DATA" />
+
+        <label for="senha"></label>Informe uma senha</label>
+        <input type="password" id="senha" name="senha" />
+        </main>
+                    <!-- CHECKBOXES -->
+
+        <p>QUAL LINGAGUEM VOCÊ QUER APRENDER:</p>
+        <label>
+            HTML E CSS<input type="checkbox" name="LINGAGUEM" value="HTML_E_CSS"/>
+        </label>
+        <label>
+            JAVASCRIPT<input type="checkbox" name="LINGAGUEM" value="JAVASCRIPT"/>
+        </label>
+        <label>
+            PYTHON<input type="checkbox" name="LINGAGUEM" value="PYTHON"/>
+        </label>
+        <label>
+            ASSEMBLY<input type="checkbox" name="LINGAGUEM" value="ASSEMBLY"/>
+        </label>
+        <label>
+            C++<input type="checkbox" name="LINGAGUEM" value="C++"/>
+        </label>
+        
+                    <!-- RADIOBUTTON -->
+        <p>ESTÁ GOSTANDO DO CURSO?</p>
+                    <label>SIM <input type="radio" name="GOSTO" value="SIM"/> </label>
+                    <label>NÃO <input type="radio" name="GOSTO" value="NAO"/> </label>
+<br><br>
+                    <!-- SELECT -->
+        <label> NÍVEL DE SATISFAÇÃO
+            <select id="SATISFACAO" name="SATISFACAO">
+            <option value="OTIMO">OTIMO</option>
+            <option value="BOM">BOM</option>
+            <option value="REGULAR">REGULAR</option>
+            <option value="RUIM">RUIM</option>
+            <option value="PESSIMO">PESSIMO</option>
+            </select>
+        </label>
+        <br>
+            <!--CAIXA DE TEXTO  -->
+        <h4>COMENTÁRIOS</h4>
+        <label><textarea rows="10" cols="40" maxlength="250"></textarea></label>
+        <br><br>
+        <!-- BOTÃO PARA RESET E ENVIO -->
+        <button type="submit">SUBMIT</button>
+        <button type="reset">RESET</button> 
+    </form>
+</body>
+</html>

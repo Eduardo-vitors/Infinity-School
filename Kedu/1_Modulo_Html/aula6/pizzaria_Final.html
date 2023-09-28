@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <link rel="stylesheet" href="design.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <title>Pizzaria Turtle Ninja</title>
+</head>
+<body>
+    <header>
+        <div>
+            <span>pizza</span>
+            <img src="../assets/pizza.png"/>
+        </div>
+
+    <nav>
+        <ul id="nav_principal">
+            <li><a href="./pizzaria_Final.html">INÍCIO</a></li>
+            <li><a href="#combo">COMBOS</a></li>
+            <li><a href="#cardapio">CARDÁPIO</a></li>
+            <li><a href="#contato">CONTATO</a></li>
+            <li><a href="./pedido.html">PEDIDO</a></li>
+        </ul>
+    </nav>
+    </header>
+    <main>
+        <section id="homes">
+            <header>
+            <h1> Pizzaria Turtle Ninja</h1>
+            <h2>A melhor pizza de todo o Multiverso</h2>
+            <div class="opacity"></div>
+        </header>
+        </section>
+                
+                <h2>SOBRE NÓS</h2>
+
+                <p> Criada em 1958 nos EUA, a Pizza Turtle Ninja é a maior rede de pizzaria do mundo com presença em 100 países, com mais de 16 mil restaurantes distribuídos pelos cinco continentes.
+                    A marca emprega mais de 250 mil funcionários globalmente. Por dia, são mais de 4 milhões de consumidores atendidos em unidades Pizza Turtle Ninja ao redor do mundo.
+                    Presente no Brasil desde 1989, atualmente a Pizza Turtle Ninja conta com mais de 230 restaurantes distribuídos em 24 estados e mais de 60 cidades.</p>
+                
+                <h2 id="combo">COMBOS</h2>
+                <section id="home">
+                    <div class="card">
+                        <img src="https://i.pinimg.com/736x/c9/24/52/c92452755e9323fbde6d850db784bf04.jpg" />
+                        <h3>Combo 3 pizzas</h3>
+                        <span>legenda de ingrdiente</span>
+                        <a href="./pedido.html">Comprar</a>
+                    </div>
+                    <div class="card">
+                        <img src="https://media-cdn.tripadvisor.com/media/photo-s/1b/73/98/b3/combo-perfeito-pizza.jpg"/>
+                        <h3>Combo família</h3>
+                        <span>legenda de ingrediente</span>
+                        <a href="./pedido.html">Comprar</a>
+                    </div>
+                    <div class="card">
+                        <img src="https://www.designi.com.br/images/preview/10000973.jpg"/>
+                        <h3>Mini rodízio</h3>
+                        <span>legenda de ingrediente</span>
+                        <a href="./pedido.html">Comprar</a>
+                    </div>
+                </section>
+        <section>
+            <table class="tabela1">
+                <caption><h2 id="cardapio">Cardápio</h2></caption>
+                <thead>
+                    <tr>
+                        <th rowspan="3">Sabores</th>
+                        <th rowspan="3">Descrição</th>
+                        <th rowspan="3">Imagem</th>
+                        <th colspan="5">Preço</th>
+                    </tr>
+                    <tr>
+                        <th>P</th>
+                        <th>M</th>
+                        <th>G</th>
+                        <th>F</th>
+                    </tr>
+                </thead><!-- só utiliza no thead a função th -->
+                <tbody>
+                    <tr>
+                        <td>Quatro queijo</td>
+                        <td>Pizza com quatro tipo de queijo, azeitona e oregano</td>
+                        <td><img src="https://www.comidaereceitas.com.br/img/sizeswp/1200x675/2007/12/Pizza_quatro_queijossss.jpg"alt=" pizza quatro queijo" /></td><!-- table data, delimita um dado de uma tabela -->
+                        <td>12,90</td>
+                        <td>22,90</td>
+                        <td>32,90</td>
+                        <td>42,90</td>
+                    </tr>
+                    <tr>
+                        <td>Calabresa</td>
+                        <td>Pizza com calabresa,queijo, azeitona, Cebola e oregano</td>
+                        <td><img src="https://www.sabornamesa.com.br/media/k2/items/cache/513d7a0ab11e38f7bd117d760146fed3_XL.jpg"alt=" pizza calabresa" /></td><!-- table data, delimita um dado de uma tabela -->
+                        <td>12,90</td>
+                        <td>22,90</td>
+                        <td>32,90</td>
+                        <td>42,90</td>
+                    </tr>
+                    <tr>
+                        <td>Frango com catupiry</td>
+                        <td>Pizza com frango,queijo,catupiry, azeitona e oregano</td>
+                        <td><img src="https://www.sabornamesa.com.br/media/k2/items/cache/ada34cd2101afafaba465aad112ee3c1_XL.jpg"alt=" pizza calabresa" /></td><!-- table data, delimita um dado de uma tabela -->
+                        <td>13,90</td>
+                        <td>23,90</td>
+                        <td>33,90</td>
+                        <td>43,90</td>
+                    </tr>
+                </tbody><!-- Utiliza no tbody a função td -->
+                <tfoot>
+                    <tr>
+                        <th>Bebida</th>
+                        <td>Coca-Cola</td>
+                        <td> Tamanho 350 ml</td>
+                        <td>Preço 6,00 </td>
+                        <td colspan="3"><img src="https://thumbs.dreamstime.com/b/um-copo-e-uma-lata-de-coca-cola-156479243.jpg"alt=" coca cola"/></td>
+
+                    </tr>
+                </tfoot>
+            </table>
+        </section>  
+        <h2 id="contato">Entre em contato conosco </h2>     
+    </main>
+    <section>
+        
+        <div class="contato">
+            <div>
+                <h4>ENDEREÇO</h4>
+                <p>Avendia Acm,1057</p>
+                <p>Pituba </p> 
+                <p>Salvador-BA</p>
+            </div>  
+            <div >
+                <h4>HORÁRIOS</h4>
+                <p>Terça-Quinta:18h às 23h</p>
+                <p>sexta e sábado:18h às 23:30h</p>
+                <p>Domingo:18h às 23h</p>
+
+            </div>  
+            <div>
+                <h4>TELEFONE</h4>
+                <p>(71)99999-9999</p>
+                <p>(71)99999-9999</p>
+                <p>(71)99999-9999</p>
+            </div>
+        </div> 
+    </section>
+    <footer>
+    <p>@Pizzaria Turtle Ninja 1958,TODOS OS DIREITOS RESERVADOS</p> 
+    </footer>
+</body>
+</html>

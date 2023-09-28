@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 style="text-align: center;color: rgb(18, 18, 227);font-size: 30px;">É POSSIVEL DIVIDI POR ZERO?</h1>
+    <p id="resposta"></p>
+    
+    <script>
+    let p = document.getElementById("resposta")
+    let Divisor = 0
+    const resultado = dividirPorZero(Divisor) 
+
+    function dividirPorZero(numero) {
+        try {
+          if (numero === 0) {
+            throw new Error("Não é possível dividir por zero.");
+          }
+          return 10 / numero; 
+        } catch (erro) {
+          return erro.message;
+        }
+      }
+      p.innerHTML=`O Resultado foi: ${resultado}`
+      </script>   
+</body>
+</html>

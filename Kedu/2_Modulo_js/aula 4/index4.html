@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" placeholder="Digite uma palavra"/>
+    <button onclick="reverso()">Reverso</button>
+
+    <script>
+        function reverso(){
+            let palavra = document.querySelector("input").value
+            let palvraReversa=""
+            /* Cada caracter de uma string possui um numero de posicionamento, chamado de index. este index começa sempre do valor 0. Ou seja, index 0 é referente ao primeiro caracter  */
+            for(let i=palavra.length-1; i>=0;i--){
+                palvraReversa+=palavra[i]
+            }
+            alert(palvraReversa)
+        }
+    </script>
+</body>
+</html>

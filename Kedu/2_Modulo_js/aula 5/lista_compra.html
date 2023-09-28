@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" placeholder="Digite um item de compra"/>
+    <button onclick="Adicionar()">Adicionar</button>
+    <ul></ul>
+    <script>
+        /* let li= document.createElement('li')
+        li.append(item)
+        ul.appendChild(li)
+         */
+        let compras = ["Feijão","Arroz","Cuscuz","Café","Maçã","Peito de Frango"]
+        let ul= document.querySelector("ul")
+        
+        function mostrarItens()
+        {
+            ul.innerHTML=""
+            for (let comprar of compras){
+            ul.innerHTML+=`<li>${comprar}</li>`
+        }
+        }
+        function Adicionar(){
+            let item = document.querySelector('input').value
+            compras.push(item)
+            mostrarItens()
+        }
+        mostrarItens()
+    </script>
+
+</body>
+</html>

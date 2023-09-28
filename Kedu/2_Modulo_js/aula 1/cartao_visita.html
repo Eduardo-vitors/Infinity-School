@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        main{
+            background-color: blanchedalmond;
+            color:blue;
+            font-size: 12px;
+            border: 1px solid black;
+            border-radius: 1%;
+        }
+    </style>
+</head>
+<body>
+<main>
+   <h1>EDUARDO VITOR</h1>
+   <p id="paragrafo">
+    <!-- <button onclick="alert('Engenheiro de Computação')">profissão</button> -->
+   </p>
+   <!-- <button onclick="alert('hello world')"> TESTE</button> -->
+<!--  <button onclick = 'paragrafo.innerHTML = "<h2>Engenheiro de Computação</h2>" '> profissão </button>  -->
+ <button onclick = "mostrarprofissao()"> profissão </button> 
+</main>
+    
+   <script>
+      // const paragrafo = document.getElementById("paragrafo")
+       function mostrarprofissao(){
+        //escopo
+        let p =document.getElementById("paragrafo")
+        p.innerHTML= 'Programador DEV'
+       }
+
+    </script>
+</body>
+</html>
