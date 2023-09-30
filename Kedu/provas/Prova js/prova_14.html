@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Usuarios</title>
+    <style>
+        table,
+        th,
+        td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 10px;
+            background-color: gray;
+            color: white;
+            font-size: 14px;
+        }
+
+        label {
+            display: block;
+            margin-top: 5px;
+        }
+
+        h1 {
+            text-align: center;
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Lista de Usuarios</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>NOME</th>
+                <th>EMAIL</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <script>
+        let tbody = document.querySelector("tbody")
+        let usuarios = [
+            {
+                "id": 1,
+                "nome": "Eduardo",
+                "email": "Kedu@example.com"
+            }
+        ]
+
+// adiciona usuarios a lista
+        function createUser(id, nome, email) {
+            return new Promise(resolve => {
+                setTimeout(() => {
+                    let novoUsuario = {
+                        id, nome, email
+                    }
+                    usuarios.push(novoUsuario)
+                    resolve(usuarios)
+                }, 1000)
+            })
+        }
+// ler a lista de usuario
+        function readUser() {
+            return new Promise(resolve => {
+                setTimeout(() => {
+                    resolve(usuarios)
+                }, 1500)
+            })
+        }
+
+
+// altera as informações de algum usuarios informando o id e o nome e o email que será alterado
+        function updateUser(id, nome, email) {
+            return new Promise(resolve => {
+                setTimeout(() => {
+                    const usuarioIndex = usuarios.findIndex((usuario) => usuario.id === id);
+                    if (usuarioIndex === -1) {
+                        reject(new Error("Usuário não encontrado"));
+                    } else {
+                        usuarios[usuarioIndex].nome = nome;
+                        usuarios[usuarioIndex].email = email;
+                        resolve(usuarios);
+                    }
+                }, 1500)
+            })
+
+        }
+// deleta o usuario a partir do ID
+        function deleteUser(id) {
+            return new Promise((resolve) => {
+                const usuarioIndex = usuarios.findIndex((usuario) => usuario.id === id);
+                if (usuarioIndex === -1) {
+                    reject(new Error("Usuário não encontrado"));
+                } else {
+                    const usuarioExcluido = usuarios.splice(usuarioIndex, 1)[0];
+                    resolve(usuarios);
+                }
+            },1500);
+        }
+    // Imprimir a lista depois de ler
+        function imprimirLista(visualizar) {
+            tbody.innerHTML = ""
+            visualizar.forEach(element => {
+                tbody.innerHTML += `
+                <tr>
+                    <td>${element.id}</td>
+                    <td>${element.nome}</td>
+                    <td>${element.email}</td>
+                </tr> `
+            });
+        }
+
+        /* Altere o valor aqui para visualizar o CRUD funcionando */
+        async function mostrarCRUD() {
+            const result = await createUser(2, "Carla", "example@example.com") // tem que inserir no createUser(id,nome,email)
+            let visualizar = await readUser() // Função para ler e depois imprimir a lista de Usuarios
+            imprimirLista(visualizar)
+            const atual = await updateUser(2, "Caroline", "Caroline@example.com") // Função para alterar informações informando o updateUser(id,nome,email)
+            visualizar = await readUser()
+            imprimirLista(visualizar)
+            const novaLista= await deleteUser(2) // Função para deletar usuário informando o id
+            visualizar = await readUser()
+            imprimirLista(visualizar)
+            await createUser(2, "Maria", "Maria@example.com")
+            await createUser(3, "João", "João@example.com")
+            visualizar = await readUser()
+            imprimirLista(visualizar)
+        }
+        mostrarCRUD();
+    </script>
+</body>
+
+</html>

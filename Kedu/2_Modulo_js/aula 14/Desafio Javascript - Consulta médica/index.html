@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;700&display=swap" rel="stylesheet">
+  <title>Marcação de Consulta</title>
+</head>
+<body>
+  <div class="modal">
+    <form id="editar_form" class="container">
+      <button type="button" class="close" onclick="fecharModal()">X</button>
+        <div class="convenio">
+          <span>Possui convênio?</span>
+          <label>
+            Sim
+            <input type="radio" name="update_convenio" value="sim" required>
+          </label>
+          <label>
+            Não
+            <input type="radio" name="update_convenio" value="nao" required>
+          </label>
+        </div>
+        <div >
+          <label>
+            Telefone
+            <input type="number" name="update_telefone" >
+          </label>
+        </div>
+        <div>
+          <label>Selecione dia e horário:
+            <select id="update_datas_disponiveis" required>
+            </select>
+          </label>
+        </div>
+
+        <input id="id_consulta" type="hidden" />
+
+        <button>Atualizar consulta</button>
+      </form>
+  </div>
+
+  <header>
+    Doctor Care - Consultório Médico
+    <img src="./assets/arquivo-medico.png" alt="logo doctor care" />
+  </header>
+  <main>
+    <section class="appointments-form" >
+        <h4>Marque suas consultas aqui</h4>
+        
+      <form id="marcar_consulta">
+        <div>
+          <label for="nome">Nome</label>
+          <input id="nome" type="text" name="nome" placeholder="Digite seu nome..." required>
+        </div>
+        <div>
+          <label for="telefone">Telefone</label>
+          <input id="telefone" name="telefone" type="tel" placeholder="Digite seu telefone..." required>
+        </div>
+        <div class="convenio">
+          <span>Possui convênio?</span>
+          <label>
+            Sim
+            <input type="radio" name="convenio" value="sim" required>
+          </label>
+          <label>
+            Não
+            <input type="radio" name="convenio" value="nao" required>
+          </label>
+        </div>
+        <div>
+          <label>Escolha a especialidade:
+            <select id="especialidades" required>
+              <!-- option para cada especialidade onde o nome da option
+              é o nome da especialidade e o value pode ser o id da especialidade 
+            <option value="1"> Ginecoligista </option>
+            -->
+            </select>
+          </label>
+        </div>
+        <div>
+          <label>Selecione dia e horário:
+            <select id="datas_disponiveis" required>
+              <!-- cada option ser uma data disponivel onde o nome da option
+              é a data em si e o value pode ser o id da data
+                <option value="1"> SEX, 15/03 </option>
+            -->
+            </select>
+          </label>
+        </div>
+        <button onclick="AdicionarConsulta()">Marcar consulta</button>
+      </form>
+    </section>
+    <section class="appointments">
+      <h4>Suas consultas marcadas</h4>
+      <div>
+        <label> Organizar por:
+          <select>
+            <option value="1">Mais recentes</option>
+            <option value="2">Mais antigas</option>
+          </select>
+        </label>
+      </div>
+      <div class="appointments_container"></div>
+    </section>
+  </main>
+
+  <script src="./scripts.js"></script>
+</body>
+</html>

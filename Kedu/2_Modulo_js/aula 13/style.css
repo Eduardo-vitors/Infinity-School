@@ -1,0 +1,12 @@
+section{
+    background-color: blue;
+}
+.imagem{
+    display: flex;
+    font: inherit;
+    align-items: center;
+}
+
+.imagem img{
+    height: 350px;
+}

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Descrição</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css"/>
+</head>
+<body>
+    
+
+    <section>
+        <div class="imagem"></div>
+        <div class="info"></div>
+    </section>
+
+        <script>
+             // fazer uma chamada de api para o id do pokemon OK
+             // mostrar pokemon na tela com detalhes
+             // habilidades, peso, altura, tipo,imagem e nome OK
+             // ter uma tag a para voltar para a pagina inicial
+        let imagem = document.querySelector(".imagem")
+          async function captarPokemon(){
+                const id =localStorage.getItem("pokemon_id")
+                if(!id){
+                    alert("ERRRO!!!, POKEMON NÃO ENCONTRADO")
+                }
+                try{
+                let resposta = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`)
+                let dados = await resposta.json()
+                return dados
+            }catch(e){
+                console.log(e)
+            }
+            }
+            async function mostraInfo(){
+                imagem.innerHTML=""
+                const pokemons = await captarPokemon()
+                let altura = Number(pokemons.weight)/10
+                let peso = Number(pokemons.height)/10
+                let tipo=pokemons.types["0"].type.name
+                let nome = pokemons.name
+                let habilidade=pokemons.abilities["0"].ability.name
+                let url_imagem=pokemons.sprites.front_default
+                imagem.innerHTML=`<img src="${url_imagem}"/>`
+            }
+            mostraInfo()
+        </script>
+         <li>
+            <a href="./Pokedex.html"> Voltar para página principal</a>
+        </li>
+</body>
+</html>

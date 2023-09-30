@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokedex</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles.css"/>
+</head>
+<body>
+    <header>
+        <h1>Pokedex</h1>
+       <nav>
+        <ul>
+        <li>
+            <button onclick="captarPokemon()">Todos os Pokemons</button>
+        </li>
+            <li>
+            <button class="type-btn" data-type="water">Água</button>
+        </li>
+        <li>
+            <button class="type-btn" data-type="fire">Fogo</button>
+        </li>
+        <li>
+            <button class="type-btn" data-type="grass">Grama</button>
+        </li>
+        <li>
+            <button class="type-btn" data-type="poison">Venenoso</button>
+        </li>
+        <li>
+            <button class="type-btn" data-type="electric">Eletrico</button>
+        </li>
+       </ul>
+        
+       </nav>
+    </header>
+ 
+    <main>
+        <section id="pokemons_container">
+        
+        </section></main>
+    
+    <script>
+
+        const buttons= document.querySelectorAll(".type-btn")
+        buttons.forEach((button,index,array)=>{
+            button.addEventListener("click", filtrarPokemon)
+        })
+        const PokemonContainer = document.querySelector("#pokemons_container")
+        let timer=false
+
+        async function filtrarPokemon (eventoDeClick){
+            const name = eventoDeClick.target.dataset.type
+
+            if (timer){
+                alert("Espere carregar todos os Pokemons")
+                return
+            }
+
+            try{
+                    const resposta = await fetch(`https://pokeapi.co/api/v2/type/${name}`)
+                    let dados = await resposta.json()
+                    const pokemons= dados.pokemon.map(item=>item.pokemon)
+                    MostrarPokemon(pokemons)
+
+            }catch(e){
+                console.log(e)
+            }
+        }
+        async function captarPokemon(){
+            if (timer){
+                alert("Espere carregar todos os Pokemons")
+                return
+            }
+
+            try{
+                let resposta = await fetch("https://pokeapi.co/api/v2/pokemon?limit=50")
+                let dados = await resposta.json()
+                MostrarPokemon(dados.results)
+            }catch(e){
+                console.log(e)
+            }
+        }
+
+        async function pegarPokemon(url){
+            try{
+                let resposta = await fetch(url)
+                let pokemon = await resposta.json()
+                return pokemon
+            }catch(e){
+                console.log(e)
+            }
+        }
+
+      async function MostrarPokemon(pokemons){
+            timer=true
+            //const pokemons = await captarPokemon()
+            PokemonContainer.innerHTML= ""
+            for (let item of pokemons){
+                const pokemon = await pegarPokemon(item.url)
+                
+                PokemonContainer.innerHTML+=`<div class="card" onclick="mostrarDetalhes(${pokemon.id})">
+                    <img src="${pokemon.sprites.versions['generation-v']["black-white"].animated.front_default}"/>
+                    <h2>${pokemon.name}</h2>
+                    <div class= "types ${pokemon.name}"></div>
+                    </div>` 
+                    const typesContainer=document.querySelector(`.${pokemon.name}`)
+                    pokemon.types.forEach(item=> {
+                    typesContainer.innerHTML+=`<span class="type ${item.type.name}">${item.type.name} </span>`
+                    })    
+            }
+            timer=false
+        }
+        function mostrarDetalhes(id_Poke){
+            localStorage.setItem("pokemon_id",id_Poke)
+
+            location = "./info.html"
+        }
+        captarPokemon()
+    </script>
+</body>
+</html>
